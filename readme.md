@@ -11,6 +11,10 @@ A full-stack blog application built with **Flask** for the backend and **Next.js
 - **Database:** PostgreSQL
 - **Dev Tools:** Visual Studio Code
 
+# Create .env file inside the server folder
+# DATABASE_URL=postgresql://byronjestermanalo:49TCwszWtB1tuZK67FmireVGKQrxudse@dpg-d05o29ili9vc7390lji0-a.singapore-postgres.render.com/blogsite_un1j
+
+
 ---
 
 # Navigate to frontend
