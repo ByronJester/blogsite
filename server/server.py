@@ -3,22 +3,22 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from datetime import datetime
+from dotenv import load_dotenv
+import os
 
-# Create Flask app and configure CORS and DB
+# Load environment variables from the .env file
+load_dotenv()
+
 app = Flask(__name__)
 
-# Allow requests only from localhost:3000
 CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
 
-# PostgreSQL URI (Make sure it's correct)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://byronjestermanalo:49TCwszWtB1tuZK67FmireVGKQrxudse@dpg-d05o29ili9vc7390lji0-a.singapore-postgres.render.com/blogsite_un1j'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize db and migrate
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-
-# Blog Model with created_at and updated_at
 class Blog(db.Model):
     __tablename__ = 'blogs'
     id = db.Column(db.Integer, primary_key=True)
