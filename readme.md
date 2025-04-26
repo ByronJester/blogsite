@@ -31,5 +31,5 @@ npm run dev
 cd server
 
 # Run the backend
-python3 server.py
+python3 run.py
 # Available at: http://localhost:8080
